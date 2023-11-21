@@ -1,0 +1,60 @@
+<a href="/viewdata" style="color: black; text-decoration: none;">Add detail</a>
+<h2 style="text-align: center; color: coral;">ADD DATA</h2>
+<form method="post" action="/addstudentdetails"  enctype="multipart/form-data" >
+    <table border="1" align="center"> 
+          <tr style="background-color:burlywood;">
+              <td>Enter name:</td>
+              <td><input type="text" name="name"></td>
+          </tr>
+
+          <tr style="background-color:burlywood;">
+            <td>Enter age:</td>
+            <td><input type="text" name="age"></td>
+          </tr>
+
+         <tr style="background-color:burlywood;">
+            <td >Select gender</td>
+            <td>
+                <input type="radio" name="gender" value="male">male
+                <input type="radio" name="gender" value="female">female
+            </td>
+         </tr>
+    
+        <tr style="background-color:burlywood;">
+           <td>select hobby</td>
+           <td>
+               <input type="checkbox" name="hobby" value="muise">muise
+               <input type="checkbox" name="hobby" value="reading">reading
+               <input type="checkbox" name="hobby" value="coding">coding
+           </td>
+        </tr> 
+     
+        <% var city = ['surat','rajkot','navsari','bharuch'] ;%>
+        <tr style="background-color:burlywood;">
+            <td>select city</td>
+            <td>
+                 <select name="city">
+                    <option value="">-- select city --</option>
+                    <% city.map((v)=>{ %>
+                       <option value="<%= v %>"><%= v %></option>
+                       <% }) %>
+                 </select>
+            </td>
+        </tr>
+   
+         <tr style="background-color:burlywood;">
+             <td>description</td>
+             <td><textarea name="message"></textarea></td>
+         </tr>
+
+        <tr style="background-color:burlywood;">
+              <td>Upload image</td>
+              <td><input type="file" name="adminImage"></td>
+        </tr>
+
+          <tr style="background-color:burlywood;">
+            <td></td>
+            <td><input type="submit" value="add data" name="submit" ></td>
+          </tr>
+    </table>
+</form>

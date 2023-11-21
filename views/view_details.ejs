@@ -1,0 +1,32 @@
+<a href="/" style="color: black; text-decoration: none;">student detalies</a>
+<h2 style="text-align: center;">VIEW DATA</h2>
+<form method="post" action="viewdata" >
+    <table border="1" align="center">
+        <tr  style="background-color:burlywood; text-align: center;">
+            <td>Name</td>
+            <td>Age</td>
+            <td>gender</td>
+            <td>hobby</td>
+            <td>city</td>
+            <td>description</td>
+            <td>Images</td>
+            <td>Action</td>
+        </tr>
+
+        <% for (var st of stdata){ %>
+        <tr  style="background-color:burlywood; text-align: center;">
+            <td><%= st.name %></td>
+            <td><%= st.age %></td>
+            <td><%= st.gender %></td>
+            <td><%= st.hobby %></td>
+            <td><%= st.city %></td>
+            <td><%= st.message %></td>
+            <td><img src="<%= st.adminImage %>" height="100px"></td>
+            <td><a href="/deletrecord/<%= st.id %>" style="color: black; list-style: none;"> Delect</a> ||
+                <a href="/updatestudent/<%= st.id %>" style="color: black; list-style: none;"6> Upadte</a></td>
+        </tr>
+        <% } %>
+
+    </table>
+</form>
+

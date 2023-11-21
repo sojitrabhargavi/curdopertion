@@ -1,0 +1,64 @@
+<form method="post" action="/upstudentdetails" enctype="multipart/form-data">
+    <input type="hidden" name="Editid" value="<%= oldst.id %>">
+    <table border="1"> 
+          <tr>
+              <td>Enter name:</td>
+              <td><input type="text" name="name" value="<%= oldst.name %>"></td>
+          </tr>
+
+          <tr>
+            <td>Enter age:</td>
+            <td><input type="text" name="age" value="<%= oldst.age %>"></td>
+          </tr>
+
+           
+         <tr>
+          <td>Select gender</td>
+          <td>
+              <input type="radio" name="gender" value="male" <% if(oldst.gender=='male'){ %> <%= 'checked' %> <% } %> >male
+              <input type="radio" name="gender" value="female" <% if(oldst.gender=='female'){ %> <%= 'checked' %> <% } %> >female
+          </td>
+       </tr>
+
+        
+       <tr>
+        <td>select hobby</td>
+        <td>
+            <input type="checkbox" name="hobby" value="muise" <% if(oldst.hobby.includes('muise')){ %><%= 'checked' %><% } %> />muise
+            <input type="checkbox" name="hobby" value="reading" <% if(oldst.hobby.includes('reading')){ %><%= 'checked' %><% } %>>reading
+            <input type="checkbox" name="hobby" value="coding"<% if(oldst.hobby.includes('coding')){ %><%= 'checked' %><% } %>>coding
+        </td>
+     </tr> 
+
+     <% var city = ['surat','rajkot','navsari','bharuch'] ;%>
+        <tr>
+            <td>select city</td>
+            <td>
+                 <select name="city">
+                    <option value="">-- select city --</option>
+                    <% city.map((v)=>{ %>
+                       <option value="<%= v %>" <% if(oldst.city == v) {%><%= 'selected' %><% } %> ><%= v %></option>
+                       <% }) %>
+                 </select>
+            </td>
+        </tr>
+    
+        <tr>
+          <td>description</td>
+          <td><textarea name="message"><%= oldst.message %></textarea></td>
+      </tr>
+
+      <tr>
+        <td>Upload image</td>
+        <td>
+            <input type="file" name="adminImage">
+            <img src="<%= oldst.adminImage %>" height="100px">
+        </td>
+     </tr>
+
+          <tr>
+            <td></td>
+            <td><input type="submit" value="edit data" name="submit" ></td>
+          </tr>
+    </table>
+</form>
